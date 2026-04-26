@@ -23,13 +23,21 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: clip;
+  }
 
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--bg);
     color: var(--text);
-    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    position: relative;
+    overscroll-behavior-x: none;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -73,6 +81,7 @@
     text-align: center;
     padding: 120px 24px 80px;
     position: relative;
+    overflow-x: clip;
   }
   .hero::before {
     content: '';
@@ -782,6 +791,7 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
+    html, body { overflow-x: hidden; }
     nav { padding: 16px 20px; }
     .nav-links { display: none; }
     .mobile-tools-wrap { display: block; }
@@ -1109,14 +1119,14 @@
 
 <script>
   const FREE_TOOLS = [
-    { href: '/debt-plan-engine', icon: '💳', title: 'Debt Escape Plan', desc: 'See when you can be debt-free.' },
-    { href: '/spending-personality-quiz', icon: '🧠', title: 'Spending Personality', desc: 'Find your real money style.' },
-    { href: '/financial-health-score', icon: '📊', title: 'Financial Health Score', desc: '0-100 snapshot in minutes.' },
-    { href: '/emi-stress-test', icon: '📉', title: 'EMI Stress Test', desc: 'Are your EMIs too heavy?' },
-    { href: '/lifestyle-calculator', icon: '🍜', title: 'Lifestyle Calculator', desc: 'Match lifestyle and salary.' },
-    { href: '/money-timeline', icon: '📅', title: 'Money Timeline', desc: 'Your month on one line.' },
-    { href: '/future-spending-projection', icon: '🔮', title: 'Future Spending', desc: 'Project the next 30 days.' },
-    { href: '/monthly-lifestyle-report', icon: '📑', title: 'Lifestyle Report', desc: 'One-page money recap.' }
+    { href: 'debt-plan-engine.html', icon: '💳', title: 'Debt Escape Plan', desc: 'See when you can be debt-free.' },
+    { href: 'spending-personality-quiz.html', icon: '🧠', title: 'Spending Personality', desc: 'Find your real money style.' },
+    { href: 'financial-health-score.html', icon: '📊', title: 'Financial Health Score', desc: '0-100 snapshot in minutes.' },
+    { href: 'emi-stress-test.html', icon: '📉', title: 'EMI Stress Test', desc: 'Are your EMIs too heavy?' },
+    { href: 'lifestyle-calculator.html', icon: '🍜', title: 'Lifestyle Calculator', desc: 'Match lifestyle and salary.' },
+    { href: 'money-timeline.html', icon: '📅', title: 'Money Timeline', desc: 'Your month on one line.' },
+    { href: 'future-spending-projection.html', icon: '🔮', title: 'Future Spending', desc: 'Project the next 30 days.' },
+    { href: 'monthly-lifestyle-report.html', icon: '📑', title: 'Lifestyle Report', desc: 'One-page money recap.' }
   ];
 
   function renderToolsList(container) {
